@@ -38,12 +38,12 @@ http://challenge01.root-me.org/web-serveur/ch19/
 
 #### Informations
 
-Database version : SQLite3
-
 ### Version
 ```sql
 ' UNION SELECT null,sqlite_version() -- 
 ```
+
+Database version : SQLite3 (3.31.)
 
 ![Pasted image 20221123142951](https://user-images.githubusercontent.com/122984033/213182251-f8688658-98f8-41ff-adef-d2c3e06f2f4e.png)
 
