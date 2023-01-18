@@ -96,9 +96,9 @@ On obtient l'erreur SQL de lase base de données SQlite3 :
 
 ![Pasted image 20230118143526](https://user-images.githubusercontent.com/122984033/213187431-b7e42334-f087-405a-a1f4-d2f3df818305.png)
 
-# Exploitation
+## Exploitation
+### Requête true
 
-## Point d'injection
 Requête POST avec la charge utile dans le point d'injection qui correspond à la partie password dans le formulaire :
 ```sql
 login=admin&password=admin' OR '1'='1
